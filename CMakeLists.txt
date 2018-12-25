@@ -11,7 +11,7 @@ project (helloworld VERSION 0.0.${TRAVIS_BUILD_NUMBER})
 find_package (Boost COMPONENTS unit_test_framework REQUIRED)
 find_package (Threads REQUIRED)
 
-configure_file (version.h.in version.h)
+configure_file (version.h.in ${CMAKE_SOURCE_DIR}/version.h)
 
 add_executable (helloworld_cli main.cpp)
 
