@@ -1,13 +1,7 @@
-#define BOOST_TEST_MODULE test_version
+#include <cstdlib>
 
 #include "lib.h"
 
-#include <boost/test/unit_test.hpp>
-
-BOOST_AUTO_TEST_SUITE(test_version)
-
-BOOST_AUTO_TEST_CASE(test_valid_version) {
-	BOOST_CHECK(version() > 0);
+int main() {
+	return version() > 0 ? EXIT_SUCCESS : EXIT_FAILURE;
 }
-
-BOOST_AUTO_TEST_SUITE_END()
