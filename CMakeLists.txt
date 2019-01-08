@@ -8,6 +8,7 @@ endif ("${TRAVIS_BUILD_NUMBER}" STREQUAL "")
 
 project (helloworld VERSION 0.0.${TRAVIS_BUILD_NUMBER})
 
+find_package (GTest REQUIRED)
 find_package (Threads REQUIRED)
 
 configure_file (version.h.in ${CMAKE_SOURCE_DIR}/version.h)
@@ -30,7 +31,14 @@ target_link_libraries (helloworld_cli
 	PRIVATE "${CMAKE_THREAD_LIBS_INIT}"
 )
 
+target_include_directories (test_version
+	PRIVATE "${GTEST_INCLUDE_DIR}"
+)
+
 target_link_libraries (test_version
+	PRIVATE "${GTEST_LIBRARY}"
+	PRIVATE "${GTEST_MAIN_LIBRARY}"
+	PRIVATE "${CMAKE_THREAD_LIBS_INIT}"
 	PRIVATE helloworld
 )
 

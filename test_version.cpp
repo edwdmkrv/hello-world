@@ -1,7 +1,12 @@
-#include <cstdlib>
+#include <gtest/gtest.h>
 
 #include "lib.h"
 
-int main() {
-	return version() > 0 ? EXIT_SUCCESS : EXIT_FAILURE;
+TEST(Group1, Test1) {
+	EXPECT_GT(version(), 0);
+}
+
+int main(int argc, char *argv[]) {
+	testing::InitGoogleTest(&argc, argv);
+	return RUN_ALL_TESTS();
 }
