@@ -1,9 +1,8 @@
 language: cpp
 dist: xenial
 before_script:
-- echo "deb http://archive.ubuntu.com/ubuntu xenial main universe" | sudo tee -a /etc/apt/sources.list
-- sudo apt-get update -qq
-- sudo apt-get install libspdlog-dev -y
+- sudo apt-add-repository -y "deb http://archive.ubuntu.com/ubuntu xenial main universe"
+- sudo apt-get install -y libspdlog-dev
 script:
 - cmake .
 - cmake --build .
