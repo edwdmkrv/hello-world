@@ -26,12 +26,12 @@ set_target_properties (helloworld_cli helloworld test_version PROPERTIES
 )
 
 target_link_libraries (helloworld_cli
-	helloworld
-	"${CMAKE_THREAD_LIBS_INIT}"
+	PRIVATE helloworld
+	PRIVATE "${CMAKE_THREAD_LIBS_INIT}"
 )
 
 target_link_libraries (test_version
-	helloworld
+	PRIVATE helloworld
 )
 
 install (TARGETS helloworld_cli RUNTIME DESTINATION bin)
